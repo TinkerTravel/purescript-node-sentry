@@ -16,10 +16,10 @@ exports.captureErrorFFI = function(client) {
           return function() {
             client.captureException(error, attributes, function(err, eventID) {
               if (err !== null) {
-                onError(err);
+                onError(err)();
                 return;
               }
-              onSuccess(eventID);
+              onSuccess(eventID)();
             });
           };
         };
@@ -36,10 +36,10 @@ exports.captureMessageFFI = function(client) {
           return function() {
             client.captureMessage(message, attributes, function(err, eventID) {
               if (err !== null) {
-                onError(err);
+                onError(err)();
                 return;
               }
-              onSuccess(eventID);
+              onSuccess(eventID)();
             });
           };
         };
