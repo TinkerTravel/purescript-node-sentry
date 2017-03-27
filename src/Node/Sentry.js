@@ -10,16 +10,18 @@ exports.newClientFFI = function(dsn) {
 
 exports.captureErrorFFI = function(client) {
   return function(error) {
-    return function(onError) {
-      return function(onSuccess) {
-        return function() {
-          client.captureException(error, function(err, eventID) {
-            if (err !== null) {
-              onError(err);
-              return;
-            }
-            onSuccess(eventID);
-          });
+    return function(attributes) {
+      return function(onError) {
+        return function(onSuccess) {
+          return function() {
+            client.captureException(error, attributes, function(err, eventID) {
+              if (err !== null) {
+                onError(err);
+                return;
+              }
+              onSuccess(eventID);
+            });
+          };
         };
       };
     };
@@ -28,16 +30,18 @@ exports.captureErrorFFI = function(client) {
 
 exports.captureMessageFFI = function(client) {
   return function(message) {
-    return function(onError) {
-      return function(onSuccess) {
-        return function() {
-          client.captureMessage(message, function(err, eventID) {
-            if (err !== null) {
-              onError(err);
-              return;
-            }
-            onSuccess(eventID);
-          });
+    return function(attributes) {
+      return function(onError) {
+        return function(onSuccess) {
+          return function() {
+            client.captureMessage(message, attributes, function(err, eventID) {
+              if (err !== null) {
+                onError(err);
+                return;
+              }
+              onSuccess(eventID);
+            });
+          };
         };
       };
     };
