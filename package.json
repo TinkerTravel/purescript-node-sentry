@@ -1,0 +1,6 @@
+{
+  "name": "purescript-node-sentry",
+  "dependencies": {
+    "raven": "^1.2.0"
+  }
+}
