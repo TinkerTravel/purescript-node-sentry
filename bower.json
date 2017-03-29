@@ -1,5 +1,10 @@
 {
   "name": "purescript-node-sentry",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TinkerTravel/purescript-node-sentry.git"
+  },
   "dependencies": {
     "purescript-aff": "^2.0.3",
     "purescript-argonaut-core": "^2.0.1",
